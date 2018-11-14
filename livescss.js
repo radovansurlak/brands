@@ -34,7 +34,7 @@ const debouncedCallback = debounce(function(eventType, filename) {
 	console.log('\x1b[32m', `💡  "${filename}" was just ${eventType}d`)
 	console.log('\x1b[0m', '')
 	compileSCSS();
-}, 500);
+}, 200);
 
 fs.watch('./styles', debouncedCallback)
 

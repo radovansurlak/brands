@@ -1,47 +1,91 @@
-/***** Search field *****/
 .search {
-  position: relative;
+	@include desktop {
+		flex-direction: row;
+	}
 
-  input[type="search"] {
-    border: 1px solid $border-color;
-    border-radius: 30px;
-    box-sizing: border-box;
-    color: $field-text-color;
-    height: 40px;
-    padding-left: 40px;
-    padding-right: 20px;
-    -webkit-appearance: none;
-    width: 100%;
+	display: flex;
 
-    [dir="rtl"] & {
-      padding-right: 40px;
-      padding-left: 20px;
-    }
+	width: 100%;
 
-    &:focus {
-      border: 1px solid $brand_color;
-      color: $field-text-focus-color;
-    }
-  }
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 
+	input[type='search'] {
+		@include font-primary;
+		@include desktop {
+			height: 72px;
 
-  &::before {
-    @extend .icon;
-    @include vertical-align;
-    background-color: #fff;
-    color: #777;
-    content: "\1F50D";
-    font-size: 18px;
-    position: absolute;
-    left: 15px;
+			border-radius: 36px;
+		}
 
-    [dir="rtl"] & {
-      right: 15px;
-      left: auto;
-    }
-  }
+		font-size: 20px;
 
-  &-full input[type="search"] {
-    border: 1px solid #fff;
-  }
+		height: 64px;
+		width: 100%;
+		max-width: 598px;
+		padding-right: 20px;
+		padding-left: 41px;
+
+		-webkit-appearance: none;
+		border: 1px solid $border-color;
+		border-radius: 32px;
+		box-shadow: 0px 1px 57px 0 rgba(0, 0, 0, .34);
+		box-sizing: border-box;
+		color: $field-text-color;
+
+		[dir='rtl'] & {
+			padding-right: 41px;
+			padding-left: 20px;
+		}
+
+		&:focus {
+			border: 1px solid $brand_color;
+			color: $field-text-focus-color;
+		}
+
+		&::placeholder {
+			@include font-secondary;
+
+			font-size: 20px;
+
+			font-style: italic;
+			font-weight: normal;
+			text-align: center;
+		}
+	}
+
+	input[type='submit'] {
+		@include font-primary;
+		@include desktop {
+			margin-top: 0px;
+			margin-left: 22px;
+		}
+		@include desktop {
+			height: 72px;
+			padding: 22px 42px;
+
+			border-radius: 36px;
+		}
+
+		font-size: 20px;
+
+		margin-top: 20px;
+
+		width: auto;
+		min-width: initial;
+		padding: 22px 32px;
+
+		background-color: #107ba5;
+		border-radius: 32px;
+		box-shadow: 0px 1px 57px 0 rgba(0, 0, 0, .34);
+		box-sizing: border-box;
+		font-weight: bold;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+
+	&-full input[type='search'] {
+		border: 1px solid #fff;
+	}
 }

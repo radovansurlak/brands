@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Exo+2:400,700,900|Lato");
 /***** Base *****/
 * {
   box-sizing: border-box;
@@ -109,15 +110,15 @@ textarea:focus {
 }
 
 .container {
-  max-width: 1160px;
   margin: 0 auto;
+  max-width: 1160px;
   padding: 0 5%;
 }
 
 @media (min-width: 1160px) {
   .container {
-    padding: 0;
     width: 90%;
+    padding: 0;
   }
 }
 
@@ -133,15 +134,15 @@ ul {
 }
 
 .error-page {
-  max-width: 1160px;
   margin: 0 auto;
+  max-width: 1160px;
   padding: 0 5%;
 }
 
 @media (min-width: 1160px) {
   .error-page {
-    padding: 0;
     width: 90%;
+    padding: 0;
   }
 }
 
@@ -425,8 +426,8 @@ ul {
 
 /***** Header *****/
 .header {
-  max-width: 1160px;
   margin: 0 auto;
+  max-width: 1160px;
   padding: 0 5%;
   position: relative;
   align-items: center;
@@ -437,8 +438,8 @@ ul {
 
 @media (min-width: 1160px) {
   .header {
-    padding: 0;
     width: 90%;
+    padding: 0;
   }
 }
 
@@ -628,8 +629,8 @@ ul {
 }
 
 .footer-inner {
-  max-width: 1160px;
   margin: 0 auto;
+  max-width: 1160px;
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
@@ -637,8 +638,8 @@ ul {
 
 @media (min-width: 1160px) {
   .footer-inner {
-    padding: 0;
     width: 90%;
+    padding: 0;
   }
 }
 
@@ -679,71 +680,125 @@ ul {
   color: $link_color;
 }
 
-/***** Search field *****/
 .search {
-  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.search input[type="search"] {
+@media (min-width: 1024px) {
+  .search {
+    flex-direction: row;
+  }
+}
+
+.search input[type='search'] {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 20px;
+  height: 64px;
+  width: 100%;
+  max-width: 598px;
+  padding-right: 20px;
+  padding-left: 41px;
+  -webkit-appearance: none;
   border: 1px solid #ddd;
-  border-radius: 30px;
+  border-radius: 32px;
+  box-shadow: 0px 1px 57px 0 rgba(0, 0, 0, 0.34);
   box-sizing: border-box;
   color: #999;
-  height: 40px;
-  padding-left: 40px;
-  padding-right: 20px;
-  -webkit-appearance: none;
-  width: 100%;
 }
 
-[dir="rtl"] .search input[type="search"] {
-  padding-right: 40px;
+@media (min-width: 1024px) {
+  .search input[type='search'] {
+    height: 72px;
+    border-radius: 36px;
+  }
+}
+
+[dir='rtl'] .search input[type='search'] {
+  padding-right: 41px;
   padding-left: 20px;
 }
 
-.search input[type="search"]:focus {
+.search input[type='search']:focus {
   border: 1px solid $brand_color;
   color: #555;
 }
 
-.search::before {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #fff;
-  color: #777;
-  content: "\1F50D";
-  font-size: 18px;
-  position: absolute;
-  left: 15px;
+.search input[type='search']::placeholder {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
 }
 
-[dir="rtl"] .search::before {
-  right: 15px;
-  left: auto;
+.search input[type='submit'] {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 20px;
+  margin-top: 20px;
+  width: auto;
+  min-width: initial;
+  padding: 22px 32px;
+  background-color: #107ba5;
+  border-radius: 32px;
+  box-shadow: 0px 1px 57px 0 rgba(0, 0, 0, 0.34);
+  box-sizing: border-box;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.search-full input[type="search"] {
+@media (min-width: 1024px) {
+  .search input[type='submit'] {
+    margin-top: 0px;
+    margin-left: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search input[type='submit'] {
+    height: 72px;
+    padding: 22px 42px;
+    border-radius: 36px;
+  }
+}
+
+.search-full input[type='search'] {
   border: 1px solid #fff;
 }
 
-/***** Hero component *****/
 .hero {
+  height: 229px;
+  width: 100%;
+  padding: 0 20px;
+  height: calc(8.3125vw + 202.4px);
   background-image: url($homepage_background_image);
   background-position: center;
   background-size: cover;
-  height: 300px;
-  padding: 0 20px;
   text-align: center;
-  width: 100%;
+}
+
+@media (max-width: 320px) {
+  .hero {
+    height: 229px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    height: 362px;
+  }
 }
 
 .hero-inner {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 610px;
+  display: flex;
   margin: 0 auto;
+  height: 100%;
+  width: auto;
+  justify-content: center;
 }
 
 .page-header {
@@ -1275,20 +1330,27 @@ ul {
   max-width: 100%;
 }
 
-.article-body ul, .article-body ol {
+.article-body ul,
+.article-body ol {
+  margin: 20px 0 20px 20px;
   padding-left: 20px;
   list-style-position: outside;
-  margin: 20px 0 20px 20px;
 }
 
-[dir="rtl"] .article-body ul, [dir="rtl"] .article-body ol {
+[dir='rtl'] .article-body ul, [dir='rtl']
+.article-body ol {
+  margin-right: 20px;
+  margin-left: 0;
   padding-right: 20px;
   padding-left: 0;
-  margin-left: 0;
-  margin-right: 20px;
 }
 
-.article-body ul > ul, .article-body ol > ol, .article-body ol > ul, .article-body ul > ol, .article-body li > ul, .article-body li > ol {
+.article-body ul > ul,
+.article-body ol > ol,
+.article-body ol > ul,
+.article-body ul > ol,
+.article-body li > ul,
+.article-body li > ol {
   margin: 0;
 }
 
@@ -1301,27 +1363,27 @@ ul {
 }
 
 .article-body code {
+  margin: 0 2px;
+  padding: 0 5px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 0 5px;
-  margin: 0 2px;
 }
 
 .article-body pre {
+  padding: 10px 15px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 10px 15px;
   overflow: auto;
   white-space: pre;
 }
 
 .article-body blockquote {
+  padding: 0 15px;
   border-left: 1px solid #ddd;
   color: lighten($text_color, 20%);
   font-style: italic;
-  padding: 0 15px;
 }
 
 .article-body > p:last-child {
@@ -1797,9 +1859,9 @@ ul {
 }
 
 .comment-body {
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
-  -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
   font-family: $text_font;
@@ -1811,20 +1873,27 @@ ul {
   max-width: 100%;
 }
 
-.comment-body ul, .comment-body ol {
+.comment-body ul,
+.comment-body ol {
+  margin: 20px 0 20px 20px;
   padding-left: 20px;
   list-style-position: outside;
-  margin: 20px 0 20px 20px;
 }
 
-[dir="rtl"] .comment-body ul, [dir="rtl"] .comment-body ol {
+[dir='rtl'] .comment-body ul, [dir='rtl']
+.comment-body ol {
+  margin-right: 20px;
+  margin-left: 0;
   padding-right: 20px;
   padding-left: 0;
-  margin-left: 0;
-  margin-right: 20px;
 }
 
-.comment-body ul > ul, .comment-body ol > ol, .comment-body ol > ul, .comment-body ul > ol, .comment-body li > ul, .comment-body li > ol {
+.comment-body ul > ul,
+.comment-body ol > ol,
+.comment-body ol > ul,
+.comment-body ul > ol,
+.comment-body li > ul,
+.comment-body li > ol {
   margin: 0;
 }
 
@@ -1837,27 +1906,27 @@ ul {
 }
 
 .comment-body code {
+  margin: 0 2px;
+  padding: 0 5px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 0 5px;
-  margin: 0 2px;
 }
 
 .comment-body pre {
+  padding: 10px 15px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 10px 15px;
   overflow: auto;
   white-space: pre;
 }
 
 .comment-body blockquote {
+  padding: 0 15px;
   border-left: 1px solid #ddd;
   color: lighten($text_color, 20%);
   font-style: italic;
-  padding: 0 15px;
 }
 
 .comment-mark-as-solved {
@@ -2388,20 +2457,27 @@ ul {
   max-width: 100%;
 }
 
-.post-body ul, .post-body ol {
+.post-body ul,
+.post-body ol {
+  margin: 20px 0 20px 20px;
   padding-left: 20px;
   list-style-position: outside;
-  margin: 20px 0 20px 20px;
 }
 
-[dir="rtl"] .post-body ul, [dir="rtl"] .post-body ol {
+[dir='rtl'] .post-body ul, [dir='rtl']
+.post-body ol {
+  margin-right: 20px;
+  margin-left: 0;
   padding-right: 20px;
   padding-left: 0;
-  margin-left: 0;
-  margin-right: 20px;
 }
 
-.post-body ul > ul, .post-body ol > ol, .post-body ol > ul, .post-body ul > ol, .post-body li > ul, .post-body li > ol {
+.post-body ul > ul,
+.post-body ol > ol,
+.post-body ol > ul,
+.post-body ul > ol,
+.post-body li > ul,
+.post-body li > ol {
   margin: 0;
 }
 
@@ -2414,27 +2490,27 @@ ul {
 }
 
 .post-body code {
+  margin: 0 2px;
+  padding: 0 5px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 0 5px;
-  margin: 0 2px;
 }
 
 .post-body pre {
+  padding: 10px 15px;
   background: darken($background_color, 3%);
   border: 1px solid #ddd;
   border-radius: 3px;
-  padding: 10px 15px;
   overflow: auto;
   white-space: pre;
 }
 
 .post-body blockquote {
+  padding: 0 15px;
   border-left: 1px solid #ddd;
   color: lighten($text_color, 20%);
   font-style: italic;
-  padding: 0 15px;
 }
 
 .post-footer {
@@ -3266,7 +3342,6 @@ ul {
 [class^="icon-"]::before,
 [class*=" icon-"]::before,
 .icon,
-.search::before,
 .recent-activity-item-comment span::before,
 .article-vote::before,
 .attachments .attachment-item::before,
@@ -3430,9 +3505,9 @@ ul {
 }
 
 .profile-header .basic-info {
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
-  -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
   display: flex;
@@ -3486,9 +3561,9 @@ ul {
 }
 
 .profile-header .description {
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
-  -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
   margin: 15px 0;
@@ -3729,9 +3804,9 @@ ul {
 }
 
 .profile-contribution {
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
-  -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
   padding: 20px 0;
@@ -3906,9 +3981,9 @@ ul {
 }
 
 .profile-activity-description {
+  -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
-  -webkit-hyphens: auto;
   word-break: break-word;
   word-wrap: break-word;
   margin: 0;

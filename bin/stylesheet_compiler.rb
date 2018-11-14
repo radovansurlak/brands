@@ -41,7 +41,7 @@ class StylesheetCompiler
     stylesheet = "#{preamble}\n#{scss}"
     options = {
       syntax: :scss,
-      style: :expanded,
+			style: :expanded,
       load_paths: @load_paths,
       filename: "style.scss",
     }
