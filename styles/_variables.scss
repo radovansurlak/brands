@@ -41,5 +41,12 @@ $font-weight-light: 300;
 $font-weight-semibold: 600;
 
 // Brands specific variables
-$b-text-color-primary: #0b1f27;
-$b-link-color: #7eb633;
+$b-color-heading-primary: #0b1f27;
+$b-color-heading-secondary:#107ba5;
+$b-color-text: #6e6e6e;
+$b-color-link: #7eb633;
+$b-color-text-details: #3b3a3a;
+
+// Brands - sizing
+$fluid-start: 375;
+$fluid-end: 1920;

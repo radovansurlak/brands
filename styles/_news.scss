@@ -2,7 +2,7 @@
 	background-color: #f2f2f2;
 
 	&__header {
-		@include fluid(padding-top, 47, 100);
+		@include fluid(padding-top, 42, 100);
 
 		display: flex;
 
@@ -14,7 +14,7 @@
 
 			margin-bottom: 0;
 
-			color: $b-text-color-primary;
+			color: $b-color-heading-primary;
 			font-weight: bold;
 			line-height: 1;
 			text-align: left;
@@ -22,16 +22,72 @@
 
 		&__link {
 			@include link;
+			margin-top: 8px;
 		}
 	}
 
 	&__article {
+		@include fluid(padding-bottom, 15, 30);
+
+		&__content {
+			margin-top: 16px;
+		}
+
 		&__image {
 			@include fluid(margin-top, 37, 39);
+			height: 245px;
+
+			object-fit: cover;
 
 			width: 100%;
 
 			border-radius: 20px;
+		}
+
+		&__title {
+			@include font-primary;
+
+			font-size: 18px;
+
+			margin-bottom: 0;
+
+			color: $b-color-heading-secondary;
+			font-weight: bold;
+			line-height: 1.5;
+			text-align: left;
+		}
+
+		&__text {
+			@include font-secondary;
+			@include fluid(margin-top, 15, 25);
+
+			font-size: 16px;
+
+			margin-bottom: 0;
+
+			color: $b-color-text;
+		}
+
+		&__footer {
+
+			@include text-detail;
+
+			display: flex;
+
+			margin-top: 29px;
+
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&__comments {
+			display: flex;
+			
+
+			align-items: center;
+		}
+		&__comment-number {
+			margin-right: 11px;
 		}
 	}
 }
