@@ -3,6 +3,12 @@
 
 	&__header {
 		@include fluid(padding-top, 42, 100);
+		@include desktop {
+			align-items: baseline;
+			flex: 1 1 0;
+			flex-direction: row;
+			justify-content: space-between;
+		}
 
 		display: flex;
 
@@ -22,26 +28,48 @@
 
 		&__link {
 			@include link;
+			@include desktop {
+				margin-top: 0;
+			}
+
 			margin-top: 8px;
 		}
 	}
 
 	&__article {
 		@include fluid(padding-bottom, 15, 30);
+		@include desktop {
+			align-items: center;
+			flex-direction: row;
+		}
+
+		display: flex;
+
+		flex-direction: column;
 
 		&__content {
+			@include desktop {
+				margin-left: 50px;
+
+				flex: 1 1 0;
+				flex-direction: row;
+			}
+
 			margin-top: 16px;
 		}
 
 		&__image {
 			@include fluid(margin-top, 37, 39);
+			@include fluid(margin-right, 20, 50, strip-unit($desktop-width), $fluid-end);
+			@include desktop {
+				flex: 1 1 0;
+			}
+
 			height: 245px;
-
-			object-fit: cover;
-
-			width: 100%;
+			max-width: 100%;
 
 			border-radius: 20px;
+			object-fit: cover;
 		}
 
 		&__title {
@@ -55,11 +83,15 @@
 			font-weight: bold;
 			line-height: 1.5;
 			text-align: left;
+
+			a {
+				color: inherit;
+			}
 		}
 
 		&__text {
 			@include font-secondary;
-			@include fluid(margin-top, 15, 25);
+			@include fluid(margin-top, 6, 15);
 
 			font-size: 16px;
 
@@ -69,12 +101,10 @@
 		}
 
 		&__footer {
-
 			@include text-detail;
+			@include fluid(margin-top, 23, 19);
 
 			display: flex;
-
-			margin-top: 29px;
 
 			align-items: center;
 			justify-content: space-between;
@@ -82,12 +112,17 @@
 
 		&__comments {
 			display: flex;
-			
 
 			align-items: center;
 		}
+
 		&__comment-number {
 			margin-right: 11px;
 		}
 	}
+}
+
+// Shame css
+.section.news {
+	@include fluid(padding-bottom, 0, 70);
 }

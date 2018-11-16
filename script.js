@@ -162,6 +162,14 @@ function outputLatestNews() {
 	
 }
 
-outputLatestNews();
+// outputLatestNews();
+
+document.addEventListener("DOMContentLoaded", function() {
+	let news = document.querySelector('[data-news]');
+	if (news === null) return;
+	console.log('news are here');
+
+});
+
 
 // Output the variables in the homepage

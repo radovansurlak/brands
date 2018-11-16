@@ -1,9 +1,9 @@
 .hero {
+	@include fluid(height, 229, 362);
+
 	height: 229px;
 	width: 100%;
 	padding: 0 20px;
-
-	@include fluid(height, 229, 362);
 
 	background-image: url($homepage_background_image);
 	background-position: center;
@@ -16,9 +16,14 @@
 		margin: 0 auto;
 
 		height: 100%;
-		
 		width: auto;
 
 		justify-content: center;
 	}
+}
+
+// Shame css
+
+.section.hero {
+	margin-bottom: 0;
 }
