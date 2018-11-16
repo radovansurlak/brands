@@ -127,3 +127,41 @@ $(document).ready(function() {
     this.setAttribute("aria-expanded", !isExpanded);
   });
 });
+
+// Data handling
+
+function outputLatestNews() {
+	var data = null;
+
+	var text, title = '';
+	var createdAt;
+
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = true;
+
+	xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+			var homeArticle = (JSON.parse(xhr.response)).articles[0];
+			console.log(JSON.parse(xhr.response));
+			console.log(homeArticle);
+			text = homeArticle.body; 
+			title = homeArticle.title; 
+			createdAt = homeArticle.created_at; 
+			
+
+    }
+  }
+
+	xhr.open("GET", "https://testdominic.zendesk.com/api/v2/help_center/en-gb/articles.json?label_names=homepage");
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.setRequestHeader("Authorization", "Basic bWVAcmFkb3ZhbnN1cmxhay5jb206bm92ZWRvY2FzbmVoZXNsbw==");
+	xhr.setRequestHeader("Cache-Control", "no-cache");
+	xhr.setRequestHeader("Postman-Token", "2a07d37b-c6a3-4f5d-a0fa-4b0fc0506818");
+
+	xhr.send(data);
+	
+}
+
+outputLatestNews();
+
+// Output the variables in the homepage

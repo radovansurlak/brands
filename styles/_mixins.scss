@@ -107,7 +107,8 @@
 	}
 }
 
-// 
+// Brands custom mixins
+
 
 @mixin font-primary {
 	font-family: 'Exo 2', sans-serif;
@@ -115,6 +116,18 @@
 
 @mixin font-secondary {
 	font-family: 'Lato', sans-serif;
+}
+
+@mixin link {
+	@include font-primary;
+
+	font-size: 16px;
+
+	margin-top: 18px;
+
+	color: $b-link-color;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 @mixin fluid($properties, $min, $max, $start: 320, $end: 1920, $clip: true, $clipAtStart: true, $clipAtEnd: true) {
