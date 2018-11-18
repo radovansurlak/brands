@@ -80,9 +80,32 @@
 		{{/if}}
 	</section>
 
+	<div class="test">
+	{{#each promoted_articles}}
+	{{/each}}
+
+			{{#each categories}}
+				{{#each sections}}
+					{{#each articles}}
+						{{#each labels}}
+								{{#is identifier 'homepage'}}
+								<div data-title="{{ ../title }}"></div>
+								<div data-body>{{ ../body }}</div>
+								<div data-date>{{date ../created_at timeago=true}}</div>
+								<div data-comment-count="{{../comment_count}}"></div>
+								<div data-url="{{../url}}"></div>
+								{{/is}}
+						{{/each}}
+					{{/each}}
+				{{/each}}
+			{{/each}}
+
+
+	</div>
+
 	<section class="section activity">
 		{{#if settings.show_recent_activity}}
-		{{recent_activity}}
+		{{recent_activity scope="section"}}
 		{{/if}}
 	</section>
 
