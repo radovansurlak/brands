@@ -6,27 +6,35 @@
 
 
 
-<section class="section news" data-news>
+<section class="section news">
 
 	<div class="container">
-
-			<header class="news__header">
-				<h2 class="news__header__title">What's new</h2>
-				<a class="news__header__link" href="#">See all updates</a>
-			</header>
-			<article class="news__article">
-				<img class="news__article__image" src="{{ asset 'news-bg.png'}}" role="presentation" alt="Up to bottom view of an office table with a computer, coffee and a business man with papers.">
-				<div class="news__article__content">
-					<h4 class="news__article__title"><a href=""></a></h4>
-					<p class="news__article__text"></p>
-					<footer class="news__article__footer">
-						<span class="news__article__date"></span>
-						<span class="news__article__comments"><img class="news__article__comment-number" src="{{ asset 'comment.png' }}"
-							 alt="Comment icon"><span class="news__article__comment-text"></span></span>
-					</footer>
-				</div>
-			</article>
-
+		{{#each categories}}
+				{{#each sections}}
+					{{#each articles}}
+						{{#each labels}}
+								{{#is identifier 'homepage'}}
+									<header class="news__header">
+										<h2 class="news__header__title">{{dc 'brands_-_news'}}</h2>
+										<a class="news__header__link" href="TODO: Add proper link for all updates here">{{dc 'brands-see_all_updates_link'}}</a>
+									</header>
+									<article class="news__article">
+										<img class="news__article__image" src="{{ asset 'news-bg.png'}}" role="presentation" alt="Up to bottom view of an office table with a computer, coffee and a business man with papers.">
+										<div class="news__article__content">
+											<h4 class="news__article__title"><a href="{{../url}}">{{ ../title }}</a></h4>
+											<div class="news__article__text">{{ ../body }}</div>
+											<footer class="news__article__footer">
+												<span class="news__article__date">{{t 'created'}} {{date ../created_at timeago=true}}</span>
+												<span class="news__article__comments"><img class="news__article__comment-number" src="{{ asset 'comment.png' }}"
+													alt="Comment icon"><span class="news__article__comment-text">{{../comment_count}}</span></span>
+											</footer>
+										</div>
+									</article>
+								{{/is}}
+						{{/each}}
+					{{/each}}
+				{{/each}}
+			{{/each}}
 	</div>
 
 </section>
@@ -34,6 +42,61 @@
 <div class="container">
 
 	<section class="section knowledge-base">
+
+		<section class="section categories">
+			<h2 class="categories__title">Headline for main categories</h2>
+			<ul class="categories__list">
+			{{#each categories}}
+				<li class="category">
+					<img class="category__icon" src="{{ asset 'money.png' }}" alt="">
+					<h4 class="category__title"><a href="{{url}}">{{ name }}</a></h4>
+					<p class="category__description">{{excerpt description}}</p>
+					<hr class="category__separator">
+					<ul class="category__article-list">
+						{{#each sections}}
+							{{#each articles}}
+								{{#each labels}}
+									{{#is identifier 'highlight'}}
+									<li class="category-article">
+										<img class="category-article__icon" src="{{ asset 'arrow.svg'}}" alt="">
+										<h5 class="category-article__title"><a href="{{../url}}">{{../title}}</a></h5>
+									</li>
+									{{/is}}
+								{{/each}}
+							{{/each}}
+						{{/each}}
+					</ul>
+					<a class="category__link" href="{{url}}">{{t 'show_all_articles' }}	</a>
+				</li>
+				{{/each}}
+			</ul>
+
+			{{pagination}}
+		</section>
+
+		{{!-- {{#if promoted_articles}}
+		<section class="articles">
+			<h3>{{t 'promoted_articles'}}</h3>
+			<ul class="article-list promoted-articles">
+				{{#each promoted_articles}}
+				<li class="promoted-articles-item">
+					<a href="{{url}}">
+						{{title}}
+					</a>
+					{{#if internal}}
+					<span class="icon-lock" title="{{t 'internal'}}"></span>
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
+		{{/if}} --}}
+
+	</section>
+
+
+
+	{{!-- <section class="section knowledge-base">
 		<section class="categories blocks">
 			<ul class="blocks-list">
 				{{#each categories}}
@@ -78,34 +141,12 @@
 			</ul>
 		</section>
 		{{/if}}
-	</section>
 
-	<div class="test">
-	{{#each promoted_articles}}
-	{{/each}}
-
-			{{#each categories}}
-				{{#each sections}}
-					{{#each articles}}
-						{{#each labels}}
-								{{#is identifier 'homepage'}}
-								<div data-title="{{ ../title }}"></div>
-								<div data-body>{{ ../body }}</div>
-								<div data-date>{{date ../created_at timeago=true}}</div>
-								<div data-comment-count="{{../comment_count}}"></div>
-								<div data-url="{{../url}}"></div>
-								{{/is}}
-						{{/each}}
-					{{/each}}
-				{{/each}}
-			{{/each}}
-
-
-	</div>
+	</section> --}}
 
 	<section class="section activity">
 		{{#if settings.show_recent_activity}}
-		{{recent_activity scope="section"}}
+			{{recent_activity }}
 		{{/if}}
 	</section>
 
@@ -122,3 +163,9 @@
 
 
 </div>
+
+
+
+
+
+

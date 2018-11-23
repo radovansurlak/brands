@@ -1,0 +1,116 @@
+.section.categories {
+	margin-bottom: 0;
+
+	.categories {
+		&__title {
+			@include section-title;
+			@include fluid(margin-bottom, 34, 38);
+
+			line-height: 1.33;
+		}
+	}
+
+	.category {
+		@include tablet {
+			margin-right: 5%;
+
+			width: 47%;
+
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+		@include desktop {
+			width: 30%;
+
+			&,
+			&:nth-child(2n) {
+				margin-right: 4.6%;
+			}
+
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+		}
+		@include fluid(margin-bottom, 40, 90);
+
+		display: inline-block;
+
+		width: 100%;
+
+		vertical-align: top;
+
+		&__title {
+			@include font-primary;
+
+			font-size: 22px;
+
+			margin-top: 11px;
+			margin-bottom: 0;
+
+			color: $b-color-heading-secondary;
+			font-weight: bold;
+			line-height: 1;
+			text-align: left;
+
+			a {
+				color: inherit;
+			}
+		}
+
+		&__description {
+			@include font-secondary;
+
+			font-size: 18px;
+
+			margin-top: 10px;
+			margin-bottom: 0;
+			// height: 2.66em;
+
+			color: $b-color-text;
+			font-weight: 300;
+			// line-height: 1.33;
+		}
+
+		&__link {
+			@include link;
+
+			margin-top: 20px;
+		}
+
+		&__separator {
+			margin-top: 24px;
+			margin-bottom: 24px;
+
+			height: 2px;
+
+			background-color: #818181;
+			border: none;
+		}
+	}
+
+	.category-article {
+		&__title {
+			@include font-secondary;
+
+			font-size: 16px;
+
+			display: inline;
+
+			margin-bottom: 8px;
+
+			color: $b-color-text-details;
+			font-weight: 300;
+
+			a {
+				color: inherit;
+			}
+		}
+
+		&__icon {
+			display: inline-block;
+
+			margin-right: 9px;
+		}
+	}
+}

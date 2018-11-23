@@ -130,81 +130,81 @@ $(document).ready(function () {
 
 // Data handling
 
-function getLatestNewsArticle(callback) {
-	var data = null;
+// function getLatestNewsArticle(callback) {
+// 	var data = null;
 
-	var xhr = new XMLHttpRequest();
-	xhr.withCredentials = true;
+// 	var xhr = new XMLHttpRequest();
+// 	xhr.withCredentials = true;
 
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4) {
-			var homeArticle = (JSON.parse(xhr.response)).articles[0];
-			var content = {
-				text: homeArticle.body,
-				title: homeArticle.title,
-				createdAt: homeArticle.created_at,
-				link: homeArticle.html_url,
-			};
+// 	xhr.onreadystatechange = function () {
+// 		if (xhr.readyState === 4) {
+// 			var homeArticle = (JSON.parse(xhr.response)).articles[0];
+// 			var content = {
+// 				text: homeArticle.body,
+// 				title: homeArticle.title,
+// 				createdAt: homeArticle.created_at,
+// 				link: homeArticle.html_url,
+// 			};
 
-			console.log(homeArticle);
+// 			console.log(homeArticle);
 
-			callback(content)
-		}
-	}
+// 			callback(content)
+// 		}
+// 	}
 
-	xhr.open("GET", "https://testdominic.zendesk.com/api/v2/help_center/en-gb/articles.json?label_names=homepage");
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.setRequestHeader("Authorization", "Basic bWVAcmFkb3ZhbnN1cmxhay5jb206bm92ZWRvY2FzbmVoZXNsbw==");
-	xhr.setRequestHeader("Cache-Control", "no-cache");
-	xhr.setRequestHeader("Postman-Token", "2a07d37b-c6a3-4f5d-a0fa-4b0fc0506818");
+// 	xhr.open("GET", "https://testdominic.zendesk.com/api/v2/help_center/en-gb/articles.json?label_names=homepage");
+// 	xhr.setRequestHeader("Content-Type", "application/json");
+// 	xhr.setRequestHeader("Authorization", "Basic bWVAcmFkb3ZhbnN1cmxhay5jb206bm92ZWRvY2FzbmVoZXNsbw==");
+// 	xhr.setRequestHeader("Cache-Control", "no-cache");
+// 	xhr.setRequestHeader("Postman-Token", "2a07d37b-c6a3-4f5d-a0fa-4b0fc0506818");
 
-	xhr.send(data);
+// 	xhr.send(data);
 
-}
+// }
 
-function dateDifferenceDays(date1, date2) {
-	return Math.round(Math.abs(date1 - date2) / 8.64e7)
-}
+// function dateDifferenceDays(date1, date2) {
+// 	return Math.round(Math.abs(date1 - date2) / 8.64e7)
+// }
 
-function injectNewsData(news, content) {
-	// Saving the elements into variables
-	var articvarext = news.getElementsByClassName('news__article__text')[0];
-	var articvaritle = news.getElementsByClassName('news__article__title')[0].firstChild;
-	var articleComments = news.getElementsByClassName('news__article__comment-text')[0];
-	var articleDate = news.getElementsByClassName('news__article__date')[0];
+// function injectNewsData(news, content) {
+// 	// Saving the elements into variables
+// 	var articvarext = news.getElementsByClassName('news__article__text')[0];
+// 	var articvaritle = news.getElementsByClassName('news__article__title')[0].firstChild;
+// 	var articleComments = news.getElementsByClassName('news__article__comment-text')[0];
+// 	var articleDate = news.getElementsByClassName('news__article__date')[0];
 
-	var dateToday = new Date();
-	var dateArticleCreated = new Date(content.createdAt);
+// 	var dateToday = new Date();
+// 	var dateArticleCreated = new Date(content.createdAt);
 
-	function dateString(dateToday, dateArticleCreated) {
-		var baseString = 'Created ';
-		var numberOfDays = dateDifferenceDays(dateToday, dateArticleCreated)
-		switch(numberOfDays) {
-			case 0:
-					return baseString + 'today'
-			case 1:
-				return baseString + '1 day ago'
-			default:
-				return baseString + numberOfDays + ' days ago'
-		}
-	}
+// 	function dateString(dateToday, dateArticleCreated) {
+// 		var baseString = 'Created ';
+// 		var numberOfDays = dateDifferenceDays(dateToday, dateArticleCreated)
+// 		switch(numberOfDays) {
+// 			case 0:
+// 					return baseString + 'today'
+// 			case 1:
+// 				return baseString + '1 day ago'
+// 			default:
+// 				return baseString + numberOfDays + ' days ago'
+// 		}
+// 	}
 
-	articvarext.innerHTML = content.text;
-	articvaritle.href = content.link;
-	articvaritle.innerText = content.title;
-	articleComments.innerText = 2;
-	articleDate.innerText = dateString(dateToday, dateArticleCreated);
+// 	articvarext.innerHTML = content.text;
+// 	articvaritle.href = content.link;
+// 	articvaritle.innerText = content.title;
+// 	articleComments.innerText = 2;
+// 	articleDate.innerText = dateString(dateToday, dateArticleCreated);
 
-}
+// }
 
-document.addEventListener("DOMContentLoaded", function () {
-	var newsSection = document.querySelector('[data-news]');
-	if (newsSection === null) return;
-	getLatestNewsArticle(function (articleContent) {
-		injectNewsData(newsSection, articleContent)
-	});
+// document.addEventListener("DOMContentLoaded", function () {
+// 	var newsSection = document.querySelector('[data-news]');
+// 	if (newsSection === null) return;
+// 	getLatestNewsArticle(function (articleContent) {
+// 		injectNewsData(newsSection, articleContent)
+// 	});
 
-});
+// });
 
 
 // Output the variables in the homepage

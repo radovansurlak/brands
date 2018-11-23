@@ -15,15 +15,7 @@
 		flex-direction: column;
 
 		& > &__title {
-			@include fluid(font-size, 30, 40);
-			@include font-primary;
-
-			margin-bottom: 0;
-
-			color: $b-color-heading-primary;
-			font-weight: bold;
-			line-height: 1;
-			text-align: left;
+			@include section-title;
 		}
 
 		&__link {
@@ -32,7 +24,7 @@
 				margin-top: 0;
 			}
 
-			margin-top: 8px;
+			margin-top: 13px;
 		}
 	}
 
@@ -55,7 +47,7 @@
 				flex-direction: row;
 			}
 
-			margin-top: 16px;
+			margin-top: 22px;
 		}
 
 		&__image {
@@ -91,13 +83,16 @@
 
 		&__text {
 			@include font-secondary;
-			@include fluid(margin-top, 6, 15);
 
 			font-size: 16px;
 
 			margin-bottom: 0;
 
 			color: $b-color-text;
+
+			p {
+				@include fluid(margin-top, 6, 15);
+			}
 		}
 
 		&__footer {

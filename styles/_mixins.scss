@@ -1,4 +1,10 @@
 // Mixins
+@mixin media($size) {
+	@media (min-width: #{$size}) {
+		@content;
+	}
+}
+
 @mixin tablet {
 	@media (min-width: #{$tablet-width}) {
 		@content;
@@ -117,8 +123,23 @@
 	font-family: 'Lato', sans-serif;
 }
 
+@mixin section-title {
+	@include fluid(font-size, 30, 40);
+	@include font-primary;
+
+	margin-bottom: 0;
+
+	color: $b-color-heading-primary;
+	font-weight: bold;
+	line-height: 1;
+	text-align: left;
+}
+
 @mixin link {
 	@include font-primary;
+
+	display: block;
+	line-height: 1;
 
 	font-size: 16px;
 
