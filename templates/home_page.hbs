@@ -82,19 +82,22 @@
 			{{pagination}}
 		</section>
 
+	</div>
+
 	{{#if promoted_articles}}
-		<section class="promoted-articles">
-			<div class="container"></div>
-			<h3 class="promoted-articles__title">{{t 'promoted_articles'}}</h3>
-			<ul class="promoted-articles__list">
-				{{#each promoted_articles}}
-				<li class="promoted-articles__article">
-					<h5 class="article__title">{{title}}</h5>
-					<p class="article__body">{{excerpt body characters=200}}</p>
-					<a class="article__link"href="{{url}}">Read more (set this to be dynamic content)</a>
-				</li>
-				{{/each}}
-			</ul>
+		<section class="section promoted-articles">
+			<div class="container">
+				<h3 class="promoted-articles__title">{{t 'promoted_articles'}}</h3>
+				<ul class="promoted-articles__list">
+					{{#each promoted_articles}}
+					<li class="promoted-articles__article">
+						<h5 class="article__title">{{title}}</h5>
+						<p class="article__body">{{excerpt body characters=200}}</p>
+						<a class="article__link"href="{{url}}">Read more (set this to be dynamic content)</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
 		</section>
 	{{/if}}
 

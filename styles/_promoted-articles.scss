@@ -1,0 +1,36 @@
+.promoted-articles {
+	$article-margin-top: 40px;
+	@include fluid(padding-bottom, 42, 102);
+
+	background-color: $b-color-background;
+
+	.list-wrapper {
+		@include fluid(margin-top, 20, 60);
+	}
+
+	&__list {
+		margin-top: $article-margin-top;
+	}
+
+	&__title {
+		@include fluid(margin-top, 40, 100);
+		@include section-title;
+	}
+
+	&__article {
+		@include fluid(padding, 20, 30);
+
+		display: block;
+
+		margin-top: $article-margin-top;
+
+		background-color: #fff;
+		border-radius: 20px;
+	}
+
+	.article {
+		&__title {
+			@include section-title-18;
+		}
+	}
+}

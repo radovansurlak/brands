@@ -1,5 +1,5 @@
 .news {
-	background-color: #f2f2f2;
+	background-color: $b-color-background;
 
 	&__header {
 		@include fluid(padding-top, 42, 100);

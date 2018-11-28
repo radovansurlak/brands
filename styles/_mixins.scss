@@ -135,6 +135,18 @@
 	text-align: left;
 }
 
+@mixin section-title-18 {
+	font-size: 18px;
+	@include font-primary;
+
+	margin-bottom: 0;
+
+	color: $b-color-heading-primary;
+	font-weight: bold;
+	line-height: 1;
+	text-align: left;
+}
+
 @mixin link {
 	@include font-primary;
 
