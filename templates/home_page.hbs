@@ -41,8 +41,6 @@
 
 <div class="container">
 
-	<section class="section knowledge-base">
-
 		<section class="section categories">
 			<h2 class="categories__title">Headline for main categories</h2>
 			<ul class="categories__list">
@@ -58,7 +56,7 @@
 					{{#is @index 5}}{{asset 'category_general.png'}}{{/is}}
 					{{#is @index 6}}{{asset 'category_general.png'}}{{/is}}
 					{{#is @index 7}}{{asset 'category_general.png'}}{{/is}}
-					" alt="">
+					" alt="Category icon">
 					<h4 class="category__title"><a href="{{url}}">{{ name }}</a></h4>
 					<p class="category__description">{{excerpt description}}</p>
 					<hr class="category__separator">
@@ -84,91 +82,20 @@
 			{{pagination}}
 		</section>
 
-		{{!-- {{#if promoted_articles}}
-		<section class="articles">
-			<h3>{{t 'promoted_articles'}}</h3>
-			<ul class="article-list promoted-articles">
+	{{#if promoted_articles}}
+		<section class="promoted-articles">
+			<div class="container"></div>
+			<h3 class="promoted-articles__title">{{t 'promoted_articles'}}</h3>
+			<ul class="promoted-articles__list">
 				{{#each promoted_articles}}
-				<li class="promoted-articles-item">
-					<a href="{{url}}">
-						{{title}}
-					</a>
-					{{#if internal}}
-					<span class="icon-lock" title="{{t 'internal'}}"></span>
-					{{/if}}
+				<li class="promoted-articles__article">
+					<h5 class="article__title">{{title}}</h5>
+					<p class="article__body">{{excerpt body characters=200}}</p>
+					<a class="article__link"href="{{url}}">Read more (set this to be dynamic content)</a>
 				</li>
 				{{/each}}
 			</ul>
 		</section>
-		{{/if}} --}}
-
-	</section>
-
-
-
-	{{!-- <section class="section knowledge-base">
-		<section class="categories blocks">
-			<ul class="blocks-list">
-				{{#each categories}}
-				{{#if ../has_multiple_categories}}
-				<li class="blocks-item">
-					<a href='{{url}}' class="blocks-item-link">
-						<h4 class="blocks-item-title">{{name}}</h4>
-						<p class="blocks-item-description">{{excerpt description}}</p>
-					</a>
-				</li>
-				{{else}}
-				{{#each sections}}
-				<li class="blocks-item">
-					<a href='{{url}}' class="blocks-item-link">
-						<h4 class="blocks-item-title">
-							{{name}}
-						</h4>
-						<p class="blocks-item-description">{{excerpt description}}</p>
-					</a>
-				</li>
-				{{/each}}
-				{{/if}}
-				{{/each}}
-			</ul>
-			{{pagination}}
-		</section>
-
-		{{#if promoted_articles}}
-		<section class="articles">
-			<h3>{{t 'promoted_articles'}}</h3>
-			<ul class="article-list promoted-articles">
-				{{#each promoted_articles}}
-				<li class="promoted-articles-item">
-					<a href="{{url}}">
-						{{title}}
-					</a>
-					{{#if internal}}
-					<span class="icon-lock" title="{{t 'internal'}}"></span>
-					{{/if}}
-				</li>
-				{{/each}}
-			</ul>
-		</section>
-		{{/if}}
-
-	</section> --}}
-
-	<section class="section activity">
-		{{#if settings.show_recent_activity}}
-			{{recent_activity }}
-		{{/if}}
-	</section>
-
-	{{#if help_center.community_enabled}}
-	<section class="section community">
-		<h2>{{t 'community'}}</h2>
-		{{#link 'community' class='community-link'}}
-		{{t 'join_conversation'}}
-		{{/link}}
-
-		<div class="community-image"></div>
-	</section>
 	{{/if}}
 
 
