@@ -155,6 +155,13 @@
 	color: $b-color-text-details;
 }
 
+// Technical mixins
+
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
 @mixin fluid($properties, $min, $max, $start: $fluid-start, $end: $fluid-end, $clip: true, $clipAtStart: true, $clipAtEnd: true) {
   $multiplier: ($max - $min) / ($end - $start) * 100;
   $adder: ($min * $end - $max * $start) / ($end - $start);

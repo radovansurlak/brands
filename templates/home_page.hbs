@@ -48,7 +48,17 @@
 			<ul class="categories__list">
 			{{#each categories}}
 				<li class="category">
-					<img class="category__icon" src="{{ asset 'money.png' }}" alt="">
+					{{!-- Category images can be setup here --}}
+					<img class="category__icon" src="
+					{{#is @index 0}}{{asset 'category1.png'}}{{/is}}
+					{{#is @index 1}}{{asset 'category2.png'}}{{/is}}
+					{{#is @index 2}}{{asset 'category3.png'}}{{/is}}
+					{{#is @index 3}}{{asset 'category_general.png'}}{{/is}}
+					{{#is @index 4}}{{asset 'category_general.png'}}{{/is}}
+					{{#is @index 5}}{{asset 'category_general.png'}}{{/is}}
+					{{#is @index 6}}{{asset 'category_general.png'}}{{/is}}
+					{{#is @index 7}}{{asset 'category_general.png'}}{{/is}}
+					" alt="">
 					<h4 class="category__title"><a href="{{url}}">{{ name }}</a></h4>
 					<p class="category__description">{{excerpt description}}</p>
 					<hr class="category__separator">
