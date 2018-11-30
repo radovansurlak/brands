@@ -22,6 +22,7 @@
 
 	max-width: $max-width-container;
 	padding: 0 5%;
+
 	@media (min-width: #{$max-width-container}) {
 		width: 90%;
 		padding: 0;
@@ -115,6 +116,8 @@
 
 // Brands custom mixins
 
+// Typography
+
 @mixin font-primary {
 	font-family: 'Exo 2', sans-serif;
 }
@@ -136,8 +139,9 @@
 }
 
 @mixin section-title-18 {
-	font-size: 18px;
 	@include font-primary;
+
+	font-size: 18px;
 
 	margin-bottom: 0;
 
@@ -150,47 +154,58 @@
 @mixin link {
 	@include font-primary;
 
-	display: block;
-	line-height: 1;
-
 	font-size: 16px;
+
+	display: block;
 
 	color: $b-color-link;
 	font-weight: bold;
+	line-height: 1;
 	text-decoration: underline;
 }
 
 @mixin text-detail {
-	font-size: 14px;
-	font-weight: 300;
 	@include font-primary;
+
+	font-size: 14px;
+
 	color: $b-color-text-details;
+	font-weight: 300;
+}
+
+@mixin text-small {
+	@include font-primary;
+
+	font-size: 16px;
+
+	color: $b-color-text;
+	font-weight: 300;
 }
 
 // Technical mixins
 
 @mixin size($width, $height) {
-	width: $width;
 	height: $height;
+	width: $width;
 }
 
 @mixin fluid($properties, $min, $max, $start: $fluid-start, $end: $fluid-end, $clip: true, $clipAtStart: true, $clipAtEnd: true) {
-  $multiplier: ($max - $min) / ($end - $start) * 100;
-  $adder: ($min * $end - $max * $start) / ($end - $start);
-  $formula: calc(#{$multiplier + 0vw} + #{$adder + 0px});
-  @if $clip and $clipAtStart {
-    @media (max-width: #{$start + 0px}) {
+	$multiplier: ($max - $min) / ($end - $start) * 100;
+	$adder: ($min * $end - $max * $start) / ($end - $start);
+	$formula: calc(#{$multiplier + 0vw} + #{$adder + 0px});
+	@if $clip and $clipAtStart {
+		@media (max-width: #{$start + 0px}) {
 			@each $property in $properties {
 				#{$property}: $min + 0px;
 			}
-    }
-  }
-  @if $clip and $clipAtEnd {
-    @media (min-width: #{$end + 0px}) {
+		}
+	}
+	@if $clip and $clipAtEnd {
+		@media (min-width: #{$end + 0px}) {
 			@each $property in $properties {
 				#{$property}: $max + 0px;
 			}
-    }
+		}
 	}
 	@each $property in $properties {
 		#{$property}: $formula;
@@ -198,9 +213,9 @@
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
 
-  @return $number;
+	@return $number;
 }

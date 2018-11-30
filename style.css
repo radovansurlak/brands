@@ -704,11 +704,11 @@ ul {
 
 .news__header__link {
   font-family: 'Exo 2', sans-serif;
-  display: block;
-  line-height: 1;
   font-size: 16px;
+  display: block;
   color: #7eb633;
   font-weight: bold;
+  line-height: 1;
   text-decoration: underline;
   margin-top: 13px;
 }
@@ -833,10 +833,10 @@ ul {
 }
 
 .news__article__footer {
-  font-size: 14px;
-  font-weight: 300;
   font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
   color: #3b3a3a;
+  font-weight: 300;
   margin-top: calc(-0.2589vw + 23.97087px);
   display: flex;
   align-items: center;
@@ -912,6 +912,53 @@ ul {
 }
 
 .search {
+  position: relative;
+}
+
+.search input[type="search"] {
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  box-sizing: border-box;
+  color: #999;
+  height: 40px;
+  padding-left: 40px;
+  padding-right: 20px;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+[dir="rtl"] .search input[type="search"] {
+  padding-right: 40px;
+  padding-left: 20px;
+}
+
+.search input[type="search"]:focus {
+  border: 1px solid $brand_color;
+  color: #555;
+}
+
+.search::before {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  color: #777;
+  content: "\1F50D";
+  font-size: 18px;
+  position: absolute;
+  left: 15px;
+}
+
+[dir="rtl"] .search::before {
+  right: 15px;
+  left: auto;
+}
+
+.search-full input[type="search"] {
+  border: 1px solid #fff;
+}
+
+.search--brands {
   display: flex;
   width: 100%;
   align-items: center;
@@ -920,12 +967,12 @@ ul {
 }
 
 @media (min-width: 1024px) {
-  .search {
+  .search--brands {
     flex-direction: row;
   }
 }
 
-.search input[type='search'] {
+.search--brands input[type='search'] {
   font-family: 'Exo 2', sans-serif;
   height: calc(0.5178vw + 62.05825px);
   font-size: 20px;
@@ -942,28 +989,28 @@ ul {
 }
 
 @media (max-width: 375px) {
-  .search input[type='search'] {
+  .search--brands input[type='search'] {
     height: 64px;
   }
 }
 
 @media (min-width: 1920px) {
-  .search input[type='search'] {
+  .search--brands input[type='search'] {
     height: 72px;
   }
 }
 
-[dir='rtl'] .search input[type='search'] {
+[dir='rtl'] .search--brands input[type='search'] {
   padding-right: 41px;
   padding-left: 20px;
 }
 
-.search input[type='search']:focus {
+.search--brands input[type='search']:focus {
   border: 1px solid $brand_color;
   color: #555;
 }
 
-.search input[type='search']::placeholder {
+.search--brands input[type='search']::placeholder {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-style: italic;
@@ -971,7 +1018,7 @@ ul {
   text-align: center;
 }
 
-.search input[type='submit'] {
+.search--brands input[type='submit'] {
   font-family: 'Exo 2', sans-serif;
   height: calc(0.5178vw + 62.05825px);
   padding-left: calc(0.64725vw + 29.57282px);
@@ -992,39 +1039,39 @@ ul {
 }
 
 @media (min-width: 1024px) {
-  .search input[type='submit'] {
+  .search--brands input[type='submit'] {
     margin-top: 0px;
     margin-left: 22px;
   }
 }
 
 @media (max-width: 375px) {
-  .search input[type='submit'] {
+  .search--brands input[type='submit'] {
     height: 64px;
   }
 }
 
 @media (min-width: 1920px) {
-  .search input[type='submit'] {
+  .search--brands input[type='submit'] {
     height: 72px;
   }
 }
 
 @media (max-width: 375px) {
-  .search input[type='submit'] {
+  .search--brands input[type='submit'] {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (min-width: 1920px) {
-  .search input[type='submit'] {
+  .search--brands input[type='submit'] {
     padding-left: 42px;
     padding-right: 42px;
   }
 }
 
-.search-full input[type='search'] {
+.search--brands-full input[type='search'] {
   border: 1px solid #fff;
 }
 
@@ -1583,11 +1630,11 @@ ul {
 
 .section.categories .category__link {
   font-family: 'Exo 2', sans-serif;
-  display: block;
-  line-height: 1;
   font-size: 16px;
+  display: block;
   color: #7eb633;
   font-weight: bold;
+  line-height: 1;
   text-decoration: underline;
   margin-top: 20px;
 }
@@ -2088,13 +2135,32 @@ ul {
 }
 
 .promoted-articles .article__title {
-  font-size: 18px;
   font-family: 'Exo 2', sans-serif;
+  font-size: 18px;
   margin-bottom: 0;
   color: #0b1f27;
   font-weight: bold;
   line-height: 1;
   text-align: left;
+}
+
+.promoted-articles .article__body {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 16px;
+  color: #6e6e6e;
+  font-weight: 300;
+  margin-top: 12px;
+}
+
+.promoted-articles .article__link {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 16px;
+  display: block;
+  color: #7eb633;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: underline;
+  margin-top: 20px;
 }
 
 /***** Attachments *****/
@@ -3848,6 +3914,7 @@ ul {
 [class^="icon-"]::before,
 [class*=" icon-"]::before,
 .icon,
+.search::before,
 .recent-activity-item-comment span::before,
 .article-vote::before,
 .attachments .attachment-item::before,

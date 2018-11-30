@@ -32,5 +32,17 @@
 		&__title {
 			@include section-title-18;
 		}
+
+		&__body {
+			@include text-small;
+
+			margin-top: 12px;
+		}
+
+		&__link {
+			@include link;
+
+			margin-top: 20px;
+		}
 	}
 }
