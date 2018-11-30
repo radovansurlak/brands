@@ -1,8 +1,20 @@
 <footer class="footer">
+  <div class="footer__wrapper">
+    <img class="footer__logo" src="{{asset 'logo-footer.svg'}}" alt="Brands logo">
+		<section class="footer__content">
+			<span class="footer__links">
+				<a class="footer__privacy-policy" href="https://www.brandspaycheck.com/privacy-policy">{{dc 'brands-tos'}}</a>&nbsp;|&nbsp;<a class="footer__tos" href="https://www.brandspaycheck.com/terms-and-conditions">{{dc 'brand-privacy_policy'}}</a>
+			</span>
+			<span class="footer__copyright" >{{dc 'brands-copyright'}}</span>
+		</section>
+  </div>
+</footer>
+
+{{!-- <footer class="footer">
   <div class="footer-inner">
     {{#link 'help_center'}}{{help_center.name}}{{/link}}
 
-    <div class="footer-language-selector">
+    <div class="footer__language-selector">
       {{#if alternative_locales}}
         <div class="dropdown language-selector">
           <button class="dropdown-toggle" aria-haspopup="true">
@@ -19,4 +31,4 @@
       {{/if}}
     </div>
   </div>
-</footer>
+</footer> --}}

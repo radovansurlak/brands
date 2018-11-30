@@ -4,6 +4,8 @@ $article-side-margin: 2.8%;
 .promoted-articles {
 	@include fluid(padding-bottom, 42, 102);
 
+	margin-bottom: 0;
+
 	background-color: $b-color-background;
 
 	.list-wrapper {

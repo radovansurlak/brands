@@ -1,87 +1,156 @@
-/***** Header *****/
-$header-height: 71px;
-
 .header {
-  @include max-width-container;
-  position: relative;
-  align-items: center;
-  display: flex;
-  height: $header-height;
-  justify-content: space-between;
+	@include fluid(height, 60, 116);
+	position: relative;
+
+	background-color: #fefefe;
+
+	a.login {
+		@include reset-button;
+		@include font-primary;
+
+		font-size: 16px;
+
+		margin-right: 30px;
+
+		color: #6d6d6d;
+		font-weight: bold;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__nav {
+		position: absolute;
+		@include fluid(top, 60, 116);
+		@include fluid(height, 229, 362);
+	}
+
+	&__wrapper {
+		@include max-width-container;
+
+		display: flex;
+
+		height: 100%;
+
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__button-link {
+		@include font-primary;
+
+		display: inline-block;
+
+		padding: 12px 20px;
+
+		background-color: #a2cf5c;
+		border-radius: 30px;
+		color: white;
+		font-weight: bold;
+	}
+
+	&__logo {
+		height: 50px;
+
+		fill: #a2cf5c;
+	}
+
+	&__menu-button {
+		@include reset-button;
+		@include tablet {
+			display: none;
+		}
+	}
 }
 
-.logo img {
-  max-height: 37px;
-}
 
-.user-nav {
-  @include tablet { position: relative; }
-  display: inline-block;
-  position: absolute;
-  white-space: nowrap;
 
-  &[aria-expanded="true"] {
-    background-color: #fff;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15), 0 4px 10px 0 rgba(0, 0, 0, .1);
-    border: solid 1px #ddd;
-    right: 0;
-    left: 0;
-    top: $header-height;
-    z-index: 1;
 
-    > a {
-      display: block;
-      margin: 20px;
-    }
-  }
-}
+// /***** Header *****/
+// $header-height: 71px;
 
-.nav-wrapper {
-  a {
-    @include tablet {
-      display: inline-block;
-    }
+// .header {
+//   @include max-width-container;
+//   position: relative;
+//   align-items: center;
+//   display: flex;
+//   height: $header-height;
+//   justify-content: space-between;
+// }
 
-    border: 0;
-    color: $link_color;
-    display: none;
-    font-size: 14px;
-    padding: 0 20px 0 0;
-    width: auto;
+// .logo img {
+//   max-height: 37px;
+// }
 
-    [dir="rtl"] & { padding: 0 0 0 20px;}
+// .user-nav {
+//   @include tablet { position: relative; }
+//   display: inline-block;
+//   position: absolute;
+//   white-space: nowrap;
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: transparent;
-      color: $link_color;
-      text-decoration: underline;
-    }
+//   &[aria-expanded="true"] {
+//     background-color: #fff;
+//     box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15), 0 4px 10px 0 rgba(0, 0, 0, .1);
+//     border: solid 1px #ddd;
+//     right: 0;
+//     left: 0;
+//     top: $header-height;
+//     z-index: 1;
 
-    &.login { display: inline-block; }
-  }
+//     > a {
+//       display: block;
+//       margin: 20px;
+//     }
+//   }
+// }
 
-  .icon-menu {
-    @include tablet { display: none; }
-    border: 0;
-    color: $link_color;
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 10px;
-    padding: 0;
-    width: auto;
+// .nav-wrapper {
+//   a {
+//     @include tablet {
+//       display: inline-block;
+//     }
 
-    [dir="rtl"] & {
-      margin-left: 10px;
-      margin-right: 0;
-    }
+//     border: 0;
+//     color: $link_color;
+//     display: none;
+//     font-size: 14px;
+//     padding: 0 20px 0 0;
+//     width: auto;
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: transparent;
-      color: $link_color;
-    }
-  }
-}
+//     [dir="rtl"] & { padding: 0 0 0 20px;}
+
+//     &:hover,
+//     &:focus,
+//     &:active {
+//       background-color: transparent;
+//       color: $link_color;
+//       text-decoration: underline;
+//     }
+
+//     &.login { display: inline-block; }
+//   }
+
+//   .icon-menu {
+//     @include tablet { display: none; }
+//     border: 0;
+//     color: $link_color;
+//     cursor: pointer;
+//     display: inline-block;
+//     margin-right: 10px;
+//     padding: 0;
+//     width: auto;
+
+//     [dir="rtl"] & {
+//       margin-left: 10px;
+//       margin-right: 0;
+//     }
+
+//     &:hover,
+//     &:focus,
+//     &:active {
+//       background-color: transparent;
+//       color: $link_color;
+//     }
+//   }
+// }
