@@ -13,24 +13,24 @@
 				{{#each sections}}
 					{{#each articles}}
 						{{#each labels}}
-								{{#is identifier 'homepage'}}
-									<header class="news__header">
-										<h2 class="news__header__title">{{dc 'brands_-_news'}}</h2>
-										<a class="news__header__link" href="TODO: Add proper link for all updates here">{{dc 'brands-see_all_updates_link'}}</a>
-									</header>
-									<article class="news__article">
-										<img class="news__article__image" src="{{ asset 'news-bg.png'}}" role="presentation" alt="Up to bottom view of an office table with a computer, coffee and a business man with papers.">
-										<div class="news__article__content">
-											<h4 class="news__article__title"><a href="{{../url}}">{{ ../title }}</a></h4>
-											<div class="news__article__text">{{ ../body }}</div>
-											<footer class="news__article__footer">
-												<span class="news__article__date">{{t 'created'}} {{date ../created_at timeago=true}}</span>
-												<span class="news__article__comments"><img class="news__article__comment-number" src="{{ asset 'comment.png' }}"
-													alt="Comment icon"><span class="news__article__comment-text">{{../comment_count}}</span></span>
-											</footer>
-										</div>
-									</article>
-								{{/is}}
+							{{#is identifier 'homepage'}}
+								<header class="news__header">
+									<h2 class="news__header__title">{{dc 'brands_-_news'}}</h2>
+									<a class="news__header__link" href="TODO: Add proper link for all updates here">{{dc 'brands-see_all_updates_link'}}</a>
+								</header>
+								<article class="news__article">
+									<img class="news__article__image" src="{{ asset 'news-bg.png'}}" role="presentation" alt="Up to bottom view of an office table with a computer, coffee and a business man with papers.">
+									<div class="news__article__content">
+										<h4 class="news__article__title"><a href="{{../url}}">{{ ../title }}</a></h4>
+										<div class="news__article__text">{{ ../body }}</div>
+										<footer class="news__article__footer">
+											<span class="news__article__date">{{t 'created'}} {{date ../created_at timeago=true}}</span>
+											<span class="news__article__comments"><img class="news__article__comment-number" src="{{ asset 'comment.png' }}"
+												alt="Comment icon"><span class="news__article__comment-text">{{../comment_count}}</span></span>
+										</footer>
+									</div>
+								</article>
+							{{/is}}
 						{{/each}}
 					{{/each}}
 				{{/each}}
@@ -42,41 +42,43 @@
 <div class="container">
 
 		<section class="section categories">
-			<h2 class="categories__title">Headline for main categories</h2>
+			<h2 class="categories__title">{{dc 'brands-main_categories'}}</h2>
 			<ul class="categories__list">
 			{{#each categories}}
-				<li class="category">
-					{{!-- Category images can be setup here --}}
-					<img class="category__icon" src="
-					{{#is @index 0}}{{asset 'category1.png'}}{{/is}}
-					{{#is @index 1}}{{asset 'category2.png'}}{{/is}}
-					{{#is @index 2}}{{asset 'category3.png'}}{{/is}}
-					{{#is @index 3}}{{asset 'category_general.png'}}{{/is}}
-					{{#is @index 4}}{{asset 'category_general.png'}}{{/is}}
-					{{#is @index 5}}{{asset 'category_general.png'}}{{/is}}
-					{{#is @index 6}}{{asset 'category_general.png'}}{{/is}}
-					{{#is @index 7}}{{asset 'category_general.png'}}{{/is}}
-					" alt="Category icon">
-					<h4 class="category__title"><a href="{{url}}">{{ name }}</a></h4>
-					<p class="category__description">{{excerpt description}}</p>
-					<hr class="category__separator">
-					<ul class="category__article-list">
-						{{#each sections}}
-							{{#each articles}}
-								{{#each labels}}
-									{{#is identifier 'highlight'}}
-									<li class="category-article">
-										<img class="category-article__icon" src="{{ asset 'arrow.svg'}}" alt="">
-										<h5 class="category-article__title"><a href="{{../url}}">{{../title}}</a></h5>
-									</li>
-									{{/is}}
+				{{#isnt name 'News section'}}
+					<li class="category">
+						{{!-- Category images can be setup here --}}
+						<img class="category__icon" src="
+						{{#is @index 0}}{{asset 'category1.png'}}{{/is}}
+						{{#is @index 1}}{{asset 'category2.png'}}{{/is}}
+						{{#is @index 2}}{{asset 'category3.png'}}{{/is}}
+						{{#is @index 3}}{{asset 'category_general.png'}}{{/is}}
+						{{#is @index 4}}{{asset 'category_general.png'}}{{/is}}
+						{{#is @index 5}}{{asset 'category_general.png'}}{{/is}}
+						{{#is @index 6}}{{asset 'category_general.png'}}{{/is}}
+						{{#is @index 7}}{{asset 'category_general.png'}}{{/is}}
+						" alt="Category icon">
+						<h4 class="category__title"><a href="{{url}}">{{ name }}</a></h4>
+						<p class="category__description">{{excerpt description}}</p>
+						<hr class="category__separator">
+						<ul class="category__article-list">
+							{{#each sections}}
+								{{#each articles}}
+									{{#each labels}}
+										{{#is identifier 'highlight'}}
+										<li class="category-article">
+											<img class="category-article__icon" src="{{ asset 'arrow.svg'}}" alt="">
+											<h5 class="category-article__title"><a href="{{../url}}">{{../title}}</a></h5>
+										</li>
+										{{/is}}
+									{{/each}}
 								{{/each}}
 							{{/each}}
-						{{/each}}
-					</ul>
-					<a class="category__link" href="{{url}}">{{t 'show_all_articles' }}	</a>
-				</li>
-				{{/each}}
+						</ul>
+						<a class="category__link" href="{{url}}">{{t 'show_all_articles' }}	</a>
+					</li>
+				{{/isnt}}
+			{{/each}}
 			</ul>
 
 			{{pagination}}
@@ -94,7 +96,7 @@
 						<li class="promoted-articles__article">
 							<h5 class="article__title">{{title}}</h5>
 							<p class="article__body">{{excerpt body characters=200}}</p>
-							<a class="article__link"href="{{url}}">Read more (set this to be dynamic content)</a>
+							<a class="article__link"href="{{url}}">{{dc 'brands-read_more'}}</a>
 						</li>
 						{{/each}}
 					</ul>

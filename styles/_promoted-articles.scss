@@ -1,15 +1,22 @@
+$article-margin-top: 40px;
+$article-side-margin: 2.8%;
+
 .promoted-articles {
-	$article-margin-top: 40px;
 	@include fluid(padding-bottom, 42, 102);
 
 	background-color: $b-color-background;
 
 	.list-wrapper {
-		@include fluid(margin-top, 20, 60);
+		@include fluid(padding-top, 20, 60);
 	}
 
 	&__list {
-		margin-top: $article-margin-top;
+		@include tablet {
+			margin-right: -$article-side-margin;
+			margin-left: -$article-side-margin;
+		}
+
+		margin-top: -$article-margin-top;
 	}
 
 	&__title {
@@ -19,6 +26,14 @@
 
 	&__article {
 		@include fluid(padding, 20, 30);
+		@include tablet {
+			display: inline-block;
+
+			margin-right: $article-side-margin;
+			margin-left: $article-side-margin;
+
+			width: 44%;
+		}
 
 		display: block;
 
