@@ -47,7 +47,12 @@ $b-color-text: #6e6e6e;
 $b-color-link: #7eb633;
 $b-color-text-details: #3b3a3a;
 $b-color-background: #f2f2f2;
+$b-color-background-green: #a2cf5c;
 
 // Brands - sizing
 $fluid-start: 375;
 $fluid-end: 1920;
+
+// Brands - transition
+$transition-slow: 500ms;
+$transition-mid: 250ms;

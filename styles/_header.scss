@@ -1,5 +1,6 @@
 .header {
 	@include fluid(height, 60, 116);
+
 	position: relative;
 
 	background-color: #fefefe;
@@ -21,9 +22,46 @@
 	}
 
 	&__nav {
-		position: absolute;
 		@include fluid(top, 60, 116);
 		@include fluid(height, 229, 362);
+
+		display: flex;
+
+		position: absolute;
+		left: 0;
+		z-index: 1;
+		// TODO: Toggle display of the nav via JS / CSS
+
+		width: 100%;
+		padding: 30px 30px 30px 0;
+
+		align-items: flex-end;
+		background-color: $b-color-background-green;
+		border-left: 21px solid $b-color-heading-secondary;
+		flex-direction: column;
+		opacity: 0;
+		transform: scaleY(0);
+		transform-origin: top;
+		will-change: transform;
+
+		&--animatable {
+			transition: all $transition-mid;
+		}
+
+		&--visible {
+			opacity: 1;
+			transform: scaleY(1);
+		}
+
+		& > a.login {
+			margin-right: 0;
+
+			color: $b-color-heading-primary;
+		}
+
+		& > a + a {
+			margin-top: 27px;
+		}
 	}
 
 	&__wrapper {
@@ -39,15 +77,24 @@
 
 	&__button-link {
 		@include font-primary;
+		@include tablet() {
+			background-color: #a2cf5c;
+			color: white;
+		}
+
+		&::focus {
+			outline: red;
+		}
 
 		display: inline-block;
 
 		padding: 12px 20px;
 
-		background-color: #a2cf5c;
+		background-color: #fff;
 		border-radius: 30px;
-		color: white;
+		color: $b-color-heading-primary;
 		font-weight: bold;
+		line-height: 1;
 	}
 
 	&__logo {

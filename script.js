@@ -84,37 +84,6 @@ $(document).ready(function () {
 		});
 	}
 
-	function toggleNavigation(toggleElement) {
-		var menu = document.getElementById("user-nav");
-		var isExpanded = menu.getAttribute("aria-expanded") === "true";
-		menu.setAttribute("aria-expanded", !isExpanded);
-		toggleElement.setAttribute("aria-expanded", !isExpanded);
-	}
-
-	$(".header .icon-menu").on("click", function (e) {
-		e.stopPropagation();
-		toggleNavigation(this);
-	});
-
-	$(".header .icon-menu").on("keyup", function (e) {
-		if (e.keyCode === 13) { // Enter key
-			e.stopPropagation();
-			toggleNavigation(this);
-		}
-	});
-
-	$("#user-nav").on("keyup", function (e) {
-		if (e.keyCode === 27) { // Escape key
-			e.stopPropagation();
-			this.setAttribute("aria-expanded", false);
-			$(".header .icon-menu").attr("aria-expanded", false);
-		}
-	});
-
-	if ($("#user-nav").children().length === 0) {
-		$(".header .icon-menu").hide();
-	}
-
 	// Submit organization form in the request page
 	$("#request-organization select").on("change", function () {
 		this.form.submit();
@@ -126,85 +95,59 @@ $(document).ready(function () {
 		var isExpanded = this.getAttribute("aria-expanded") === "true";
 		this.setAttribute("aria-expanded", !isExpanded);
 	});
-});
 
-// Data handling
+	var menuButton = document.querySelector('.header__menu-button');
+	var menu = document.querySelector('.header__nav');
 
-// function getLatestNewsArticle(callback) {
-// 	var data = null;
+	function onTransitionEnd() {
+		menu.classList.remove("menu--animatable");
+	}
 
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.withCredentials = true;
+	function toggleMenu() {
+		menu.classList.add("header__nav--animatable");
+		if (!menu.classList.contains("header__nav--visible")) {
+			menu.classList.add("header__nav--visible");
+			menu.setAttribute("aria-expanded", true);
+		} else {
+			menu.classList.remove('header__nav--visible');
+			menu.setAttribute("aria-expanded", false);
+		}
+	
+	}
 
-// 	xhr.onreadystatechange = function () {
-// 		if (xhr.readyState === 4) {
-// 			var homeArticle = (JSON.parse(xhr.response)).articles[0];
-// 			var content = {
-// 				text: homeArticle.body,
-// 				title: homeArticle.title,
-// 				createdAt: homeArticle.created_at,
-// 				link: homeArticle.html_url,
-// 			};
+	menuButton.addEventListener('click', toggleMenu)
 
-// 			console.log(homeArticle);
+	menuButton.addEventListener("keyup", function(event) {
+		if (event.keyCode === 27 && menu.classList.contains("header__nav--visible")) toggleMenu();
+	})
 
-// 			callback(content)
-// 		}
-// 	}
+	menu.addEventListener("transitionend", onTransitionEnd, false);
 
-// 	xhr.open("GET", "https://testdominic.zendesk.com/api/v2/help_center/en-gb/articles.json?label_names=homepage");
-// 	xhr.setRequestHeader("Content-Type", "application/json");
-// 	xhr.setRequestHeader("Authorization", "Basic bWVAcmFkb3ZhbnN1cmxhay5jb206bm92ZWRvY2FzbmVoZXNsbw==");
-// 	xhr.setRequestHeader("Cache-Control", "no-cache");
-// 	xhr.setRequestHeader("Postman-Token", "2a07d37b-c6a3-4f5d-a0fa-4b0fc0506818");
-
-// 	xhr.send(data);
-
-// }
-
-// function dateDifferenceDays(date1, date2) {
-// 	return Math.round(Math.abs(date1 - date2) / 8.64e7)
-// }
-
-// function injectNewsData(news, content) {
-// 	// Saving the elements into variables
-// 	var articvarext = news.getElementsByClassName('news__article__text')[0];
-// 	var articvaritle = news.getElementsByClassName('news__article__title')[0].firstChild;
-// 	var articleComments = news.getElementsByClassName('news__article__comment-text')[0];
-// 	var articleDate = news.getElementsByClassName('news__article__date')[0];
-
-// 	var dateToday = new Date();
-// 	var dateArticleCreated = new Date(content.createdAt);
-
-// 	function dateString(dateToday, dateArticleCreated) {
-// 		var baseString = 'Created ';
-// 		var numberOfDays = dateDifferenceDays(dateToday, dateArticleCreated)
-// 		switch(numberOfDays) {
-// 			case 0:
-// 					return baseString + 'today'
-// 			case 1:
-// 				return baseString + '1 day ago'
-// 			default:
-// 				return baseString + numberOfDays + ' days ago'
-// 		}
-// 	}
-
-// 	articvarext.innerHTML = content.text;
-// 	articvaritle.href = content.link;
-// 	articvaritle.innerText = content.title;
-// 	articleComments.innerText = 2;
-// 	articleDate.innerText = dateString(dateToday, dateArticleCreated);
-
-// }
-
-// document.addEventListener("DOMContentLoaded", function () {
-// 	var newsSection = document.querySelector('[data-news]');
-// 	if (newsSection === null) return;
-// 	getLatestNewsArticle(function (articleContent) {
-// 		injectNewsData(newsSection, articleContent)
-// 	});
-
-// });
+})
 
 
-// Output the variables in the homepage
+// Legacy jQuery menu handling
+
+	// $(".header .icon-menu").on("click", function (e) {
+	// 	e.stopPropagation();
+	// 	toggleNavigation(this);
+	// });
+
+	// $(".header .icon-menu").on("keyup", function (e) {
+	// 	if (e.keyCode === 13) { // Enter key
+	// 		e.stopPropagation();
+	// 		toggleNavigation(this);
+	// 	}
+	// });
+
+	// $("#user-nav").on("keyup", function (e) {
+	// 	if (e.keyCode === 27) { // Escape key
+	// 		e.stopPropagation();
+	// 		this.setAttribute("aria-expanded", false);
+	// 		$(".header .icon-menu").attr("aria-expanded", false);
+	// 	}
+	// });
+
+	// if ($("#user-nav").children().length === 0) {
+	// 	$(".header .icon-menu").hide();
+	// }

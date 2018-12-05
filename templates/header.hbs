@@ -1,9 +1,10 @@
 <header class="header">
 	<div class="header__wrapper">
 		{{#link 'help_center'}}
-			<img class="header__logo" src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
+		<img class="header__logo" src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
 		{{/link}}
-		<button class="header__menu-button" type="button"><img src="{{asset 'menu.svg'}}" alt="Menu button"></button>
+		<button class="header__menu-button" tabindex="0" type="button" aria-controls="user-nav" aria-expanded="false" aria-label="{{t 'toggle_navigation'}}"><img
+			 src="{{asset 'menu.svg'}}" alt="Menu button" role="presentation"></button>
 		<nav class="header__nav">
 			{{user_info}}
 			{{link 'new_request' class='header__button-link'}}
@@ -14,7 +15,7 @@
 {{!-- <header class="header">
 	<div class="logo">
 		{{#link 'help_center'}}
-			<img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
+		<img src="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
 		{{/link}}
 	</div>
 	<div class="nav-wrapper">
