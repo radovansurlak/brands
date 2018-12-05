@@ -98,8 +98,13 @@ $(document).ready(function () {
 
 	var menuButton = document.querySelector('.header__menu-button');
 	var menu = document.querySelector('.header__nav');
+	var buttonImage = document.querySelector('.menu-button__image');
 
 	// Brands - Menu handling
+
+	function toggleMenuButtonImage() {
+		buttonImage.classList.toggle('menu-button__image--visible');
+	}
 
 	function onTransitionEnd() {
 		menu.classList.remove("header__nav--animatable");
@@ -110,13 +115,16 @@ $(document).ready(function () {
 		if (!menu.classList.contains("header__nav--visible")) {
 			menu.classList.add("header__nav--visible");
 			menu.setAttribute("aria-expanded", true);
+			toggleMenuButtonImage()
 		} else {
 			menu.classList.remove('header__nav--visible');
 			menu.setAttribute("aria-expanded", false);
+			toggleMenuButtonImage()
 		}
 	}
 
 	menuButton.addEventListener('click', toggleMenu)
+
 
 	menuButton.addEventListener("keyup", function(event) {
 		if (event.keyCode === 27 && menu.classList.contains("header__nav--visible")) toggleMenu();

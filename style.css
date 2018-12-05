@@ -640,12 +640,35 @@ ul {
   -moz-osx-font-smoothing: inherit;
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
+  position: relative;
+  height: 40px;
+  width: 40px;
 }
 
 @media (min-width: 768px) {
   .header__menu-button {
     display: none;
   }
+}
+
+.header .menu-button__image,
+.header .menu-button__image--close {
+  transition: opacity 250ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header .menu-button__image {
+  opacity: 0;
+}
+
+.header .menu-button__image--visible {
+  opacity: 1;
+}
+
+.header .menu-button__image--visible + .menu-button__image--close {
+  opacity: 0;
 }
 
 /***** User info in header *****/

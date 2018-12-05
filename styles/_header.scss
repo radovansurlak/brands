@@ -149,6 +149,29 @@
 		@include tablet {
 			display: none;
 		}
+
+		position: relative;
+
+		height: 40px;
+		width: 40px;
+	}
+
+	.menu-button__image,
+	.menu-button__image--close {
+		transition: opacity $transition-mid;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.menu-button__image {
+		opacity: 0;
+
+		&--visible {
+			opacity: 1;
+			& + .menu-button__image--close {
+				opacity: 0;
+			}
+		}
 	}
 }
 
