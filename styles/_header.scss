@@ -24,6 +24,22 @@
 	&__nav {
 		@include fluid(top, 60, 116);
 		@include fluid(height, 229, 362);
+		@include tablet {
+			position: relative;
+			top: initial;
+			left: initial;
+
+			height: initial;
+			padding: initial;
+
+			align-items: center;
+			background-color: initial;
+			border-left: none;
+			flex-direction: row;
+			justify-content: flex-end;
+			opacity: 1;
+			transform: scaleY(1);;
+		}
 
 		display: flex;
 
@@ -44,6 +60,13 @@
 		transform-origin: top;
 		will-change: transform;
 
+		& > a {
+			transition: transform $transition-slow 0s, opacity $transition-fast 0s;
+
+			transform: translateX(60%);
+			opacity: 0;
+		}
+
 		&--animatable {
 			transition: all $transition-mid;
 		}
@@ -51,15 +74,28 @@
 		&--visible {
 			opacity: 1;
 			transform: scaleY(1);
+			& > a {
+				opacity: 1;
+				transform: translateX(0%);
+				transition: transform $transition-mid $transition-fast, opacity $transition-mid $transition-mid;
+			}
 		}
 
 		& > a.login {
+			@include tablet {
+				margin-right: 29px;
+			}
+
 			margin-right: 0;
 
 			color: $b-color-heading-primary;
 		}
 
 		& > a + a {
+			@include tablet {
+				margin-top: 0px;
+			}
+
 			margin-top: 27px;
 		}
 	}
@@ -82,10 +118,6 @@
 			color: white;
 		}
 
-		&::focus {
-			outline: red;
-		}
-
 		display: inline-block;
 
 		padding: 12px 20px;
@@ -95,6 +127,10 @@
 		color: $b-color-heading-primary;
 		font-weight: bold;
 		line-height: 1;
+
+		&::focus {
+			outline: red;
+		}
 	}
 
 	&__logo {

@@ -99,8 +99,10 @@ $(document).ready(function () {
 	var menuButton = document.querySelector('.header__menu-button');
 	var menu = document.querySelector('.header__nav');
 
+	// Brands - Menu handling
+
 	function onTransitionEnd() {
-		menu.classList.remove("menu--animatable");
+		menu.classList.remove("header__nav--animatable");
 	}
 
 	function toggleMenu() {
@@ -112,7 +114,6 @@ $(document).ready(function () {
 			menu.classList.remove('header__nav--visible');
 			menu.setAttribute("aria-expanded", false);
 		}
-	
 	}
 
 	menuButton.addEventListener('click', toggleMenu)
