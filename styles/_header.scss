@@ -61,10 +61,14 @@
 		will-change: transform;
 
 		& > a {
-			transition: transform $transition-slow 0s, opacity $transition-fast 0s;
+			@include tablet {
+				opacity: 1;
+				transform: translateX(0%);
+			}
 
-			transform: translateX(60%);
 			opacity: 0;
+			transform: translateX(60%);
+			transition: transform $transition-slow 0s, opacity $transition-fast 0s;
 		}
 
 		&--animatable {
@@ -74,6 +78,7 @@
 		&--visible {
 			opacity: 1;
 			transform: scaleY(1);
+
 			& > a {
 				opacity: 1;
 				transform: translateX(0%);

@@ -531,9 +531,16 @@ ul {
 }
 
 .header__nav > a {
-  transition: transform 500ms 0s, opacity 125ms 0s;
-  transform: translateX(60%);
   opacity: 0;
+  transform: translateX(60%);
+  transition: transform 500ms 0s, opacity 125ms 0s;
+}
+
+@media (min-width: 768px) {
+  .header__nav > a {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 .header__nav--animatable {
