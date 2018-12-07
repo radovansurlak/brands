@@ -195,6 +195,11 @@
 	}
 }
 
+@mixin object-fit($value) {
+	object-fit: $value;
+	font-family: 'object-fit: #{$value};';
+}
+
 @mixin reset-button {
 	border: none;
 	margin: 0;

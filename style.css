@@ -980,6 +980,7 @@ ul {
   max-width: 100%;
   border-radius: 20px;
   object-fit: cover;
+  font-family: "object-fit: cover;";
 }
 
 @media (max-width: 375px) {
@@ -2350,10 +2351,11 @@ ul {
 
 .promoted-articles__article {
   padding: calc(0.64725vw + 17.57282px);
-  display: block;
+  display: flex;
   margin-top: 40px;
   background-color: #fff;
   border-radius: 20px;
+  flex-direction: column;
 }
 
 @media (max-width: 375px) {
@@ -2403,7 +2405,8 @@ ul {
   font-weight: bold;
   line-height: 1;
   text-decoration: underline;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 /***** Attachments *****/
