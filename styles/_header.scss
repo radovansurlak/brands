@@ -48,15 +48,37 @@ $nav-item-top-margin: 27px;
 		will-change: transform;
 
 		#user {
-			margin-right: 0;
 			@include tablet {
 				margin-right: $nav-item-right-margin;
+				margin-bottom: 0;
+
+				opacity: 1;
+				transform: translateX(0%);
 			}
+
+			position: relative;
+			z-index: 1;
+
+			margin-right: 0;
+			margin-bottom: $nav-item-top-margin;
+
+			opacity: 0;
+			transform: translateX(60%);
+			transition: transform $transition-slow 0s, opacity $transition-fast 0s;
 		}
 
 		& > .header__button-link {
 			@include font-primary;
 			@include tablet() {
+				@include hover {
+					background-color: #a2cf5c;
+					box-shadow: 0px 7px 15px -7px #4b4949;
+					color: white;
+					text-decoration: none;
+					transform: scale(1.03);
+					transition: transform $transition-fast, box-shadow $transition-fast;
+				}
+
 				background-color: #a2cf5c;
 				color: white;
 			}
@@ -70,10 +92,7 @@ $nav-item-top-margin: 27px;
 			color: $b-color-heading-primary;
 			font-weight: bold;
 			line-height: 1;
-
-			&::focus {
-				outline: red;
-			}
+			text-decoration: none;
 		}
 
 		& > a {
@@ -84,6 +103,10 @@ $nav-item-top-margin: 27px;
 				color: $b-color-text;
 				opacity: 1;
 				transform: translateX(0%);
+			}
+			@include hover {
+				background-color: initial;
+				color: $b-color-heading-primary;
 			}
 
 			font-size: 16px;
@@ -97,27 +120,22 @@ $nav-item-top-margin: 27px;
 			transform: translateX(60%);
 			transition: transform $transition-slow 0s, opacity $transition-fast 0s;
 
-			&:hover {
-				text-decoration: underline;
-			}
-
 			&.login {
-				padding: 0px;
+				@include hover {
+					background-color: initial;
+					color: $b-color-heading-primary;
+					text-decoration: underline;
+				}
 
 				display: inline-block;
 
 				width: initial;
+				padding: 0px;
 
 				border: none;
 				line-height: inherit;
 				text-align: inherit;
 				user-select: auto;
-				
-
-				&:hover {
-					background-color: initial;
-					color: $b-color-heading-primary;
-				}
 			}
 		}
 
@@ -129,7 +147,8 @@ $nav-item-top-margin: 27px;
 			opacity: 1;
 			transform: scaleY(1);
 
-			& > a {
+			& > a,
+			#user {
 				opacity: 1;
 				transform: translateX(0%);
 				transition: transform $transition-mid $transition-fast, opacity $transition-mid $transition-mid;
@@ -195,94 +214,3 @@ $nav-item-top-margin: 27px;
 		}
 	}
 }
-
-
-
-
-// /***** Header *****/
-// $header-height: 71px;
-
-// .header {
-//   @include max-width-container;
-//   position: relative;
-//   align-items: center;
-//   display: flex;
-//   height: $header-height;
-//   justify-content: space-between;
-// }
-
-// .logo img {
-//   max-height: 37px;
-// }
-
-// .user-nav {
-//   @include tablet { position: relative; }
-//   display: inline-block;
-//   position: absolute;
-//   white-space: nowrap;
-
-//   &[aria-expanded="true"] {
-//     background-color: #fff;
-//     box-shadow: 0 0 4px 0 rgba(0, 0, 0, .15), 0 4px 10px 0 rgba(0, 0, 0, .1);
-//     border: solid 1px #ddd;
-//     right: 0;
-//     left: 0;
-//     top: $header-height;
-//     z-index: 1;
-
-//     > a {
-//       display: block;
-//       margin: 20px;
-//     }
-//   }
-// }
-
-// .nav-wrapper {
-//   a {
-//     @include tablet {
-//       display: inline-block;
-//     }
-
-//     border: 0;
-//     color: $link_color;
-//     display: none;
-//     font-size: 14px;
-//     padding: 0 20px 0 0;
-//     width: auto;
-
-//     [dir="rtl"] & { padding: 0 0 0 20px;}
-
-//     &:hover,
-//     &:focus,
-//     &:active {
-//       background-color: transparent;
-//       color: $link_color;
-//       text-decoration: underline;
-//     }
-
-//     &.login { display: inline-block; }
-//   }
-
-//   .icon-menu {
-//     @include tablet { display: none; }
-//     border: 0;
-//     color: $link_color;
-//     cursor: pointer;
-//     display: inline-block;
-//     margin-right: 10px;
-//     padding: 0;
-//     width: auto;
-
-//     [dir="rtl"] & {
-//       margin-left: 10px;
-//       margin-right: 0;
-//     }
-
-//     &:hover,
-//     &:focus,
-//     &:active {
-//       background-color: transparent;
-//       color: $link_color;
-//     }
-//   }
-// }

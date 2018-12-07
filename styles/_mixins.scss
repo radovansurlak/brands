@@ -189,6 +189,12 @@
 	width: $width;
 }
 
+@mixin hover {
+	&:hover, &:active {
+		@content;
+	}
+}
+
 @mixin reset-button {
 	border: none;
 	margin: 0;
