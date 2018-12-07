@@ -13,19 +13,19 @@ $nav-item-top-margin: 27px;
 		@include fluid(height, 229, 362);
 		@include tablet {
 			position: relative;
-			top: initial;
-			left: initial;
+			top: inherit;
+			left: inherit;
 
-			height: initial;
-			padding: initial;
+			height: inherit;
+			padding: inherit;
 
 			align-items: center;
-			background-color: initial;
+			background-color: inherit;
 			border-left: none;
 			flex-direction: row;
 			justify-content: flex-end;
 			opacity: 1;
-			transform: scaleY(1);;
+			transform: scaleY(1);
 		}
 
 		display: flex;
@@ -122,14 +122,14 @@ $nav-item-top-margin: 27px;
 
 			&.login {
 				@include hover {
-					background-color: initial;
+					background-color: inherit;
 					color: $b-color-heading-primary;
 					text-decoration: underline;
 				}
 
 				display: inline-block;
 
-				width: initial;
+				width: auto;
 				padding: 0px;
 
 				border: none;
@@ -188,6 +188,8 @@ $nav-item-top-margin: 27px;
 		}
 
 		position: relative;
+
+		margin-left: auto;
 
 		height: 40px;
 		width: 40px;

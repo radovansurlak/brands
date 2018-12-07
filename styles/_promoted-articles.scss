@@ -1,5 +1,6 @@
 $article-margin-top: 40px;
 $article-side-margin: 2.8%;
+$promoted-article-large-width: 44%;
 
 .promoted-articles {
 	@include fluid(padding-bottom, 42, 102);
@@ -14,8 +15,12 @@ $article-side-margin: 2.8%;
 
 	&__list {
 		@include tablet {
+			display: flex;
+
 			margin-right: -$article-side-margin;
 			margin-left: -$article-side-margin;
+
+			flex-wrap: wrap;
 		}
 
 		margin-top: -$article-margin-top;
@@ -29,12 +34,12 @@ $article-side-margin: 2.8%;
 	&__article {
 		@include fluid(padding, 20, 30);
 		@include tablet {
-			display: inline-block;
-
 			margin-right: $article-side-margin;
 			margin-left: $article-side-margin;
 
-			width: 44%;
+			max-width: $promoted-article-large-width;
+
+			flex: 1 1 $promoted-article-large-width;
 		}
 
 		display: block;

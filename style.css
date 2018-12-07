@@ -488,12 +488,12 @@ ul {
 @media (min-width: 768px) {
   .header__nav {
     position: relative;
-    top: initial;
-    left: initial;
-    height: initial;
-    padding: initial;
+    top: inherit;
+    left: inherit;
+    height: inherit;
+    padding: inherit;
     align-items: center;
-    background-color: initial;
+    background-color: inherit;
     border-left: none;
     flex-direction: row;
     justify-content: flex-end;
@@ -576,7 +576,7 @@ ul {
 
 .header__nav > a.login {
   display: inline-block;
-  width: initial;
+  width: auto;
   padding: 0px;
   border: none;
   line-height: inherit;
@@ -585,7 +585,7 @@ ul {
 }
 
 .header__nav > a.login:hover, .header__nav > a.login:active {
-  background-color: initial;
+  background-color: inherit;
   color: #0b1f27;
   text-decoration: underline;
 }
@@ -656,6 +656,7 @@ ul {
   /* Corrects inability to style clickable `input` types in iOS */
   -webkit-appearance: none;
   position: relative;
+  margin-left: auto;
   height: 40px;
   width: 40px;
 }
@@ -1492,6 +1493,10 @@ ul {
 }
 
 /***** Homepage *****/
+.container {
+  width: 100%;
+}
+
 .section {
   margin-bottom: 40px;
 }
@@ -2301,8 +2306,10 @@ ul {
 
 @media (min-width: 768px) {
   .promoted-articles__list {
+    display: flex;
     margin-right: -2.8%;
     margin-left: -2.8%;
+    flex-wrap: wrap;
   }
 }
 
@@ -2363,10 +2370,10 @@ ul {
 
 @media (min-width: 768px) {
   .promoted-articles__article {
-    display: inline-block;
     margin-right: 2.8%;
     margin-left: 2.8%;
-    width: 44%;
+    max-width: 44%;
+    flex: 1 1 44%;
   }
 }
 

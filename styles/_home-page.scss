@@ -1,5 +1,9 @@
 /***** Homepage *****/
 
+.container {
+	width: 100%;
+}
+
 .section {
   @include tablet {
     margin-bottom: 60px;
