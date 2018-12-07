@@ -1258,6 +1258,7 @@ ul {
   font-weight: bold;
   line-height: 1;
   text-transform: uppercase;
+  transition: transform 125ms;
 }
 
 @media (min-width: 1024px) {
@@ -1291,6 +1292,10 @@ ul {
     padding-left: 42px;
     padding-right: 42px;
   }
+}
+
+.search--brands input[type='submit']:hover {
+  transform: scale(1.1);
 }
 
 .search--brands-full input[type='search'] {

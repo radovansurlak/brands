@@ -129,6 +129,12 @@
 		font-weight: bold;
 		line-height: 1;
 		text-transform: uppercase;
+		transition: transform $transition-fast;
+
+		&:hover {
+			transform: scale(1.1);
+
+		}
 	}
 
 	&-full input[type='search'] {
