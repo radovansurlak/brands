@@ -96,11 +96,16 @@ $(document).ready(function () {
 		this.setAttribute("aria-expanded", !isExpanded);
 	});
 
+	
+	if ($("#user-nav").children().length === 0) {
+		$(".header .icon-menu").hide();
+	}
+	
+	// Brands - Menu handling
+
 	var menuButton = document.querySelector('.header__menu-button');
 	var menu = document.querySelector('.header__nav');
 	var buttonImage = document.querySelector('.menu-button__image');
-
-	// Brands - Menu handling
 
 	function toggleMenuButtonImage() {
 		buttonImage.classList.toggle('menu-button__image--visible');
@@ -130,30 +135,3 @@ $(document).ready(function () {
 
 	menu.addEventListener("transitionend", onTransitionEnd, false);
 })
-
-
-// Legacy jQuery menu handling
-
-	// $(".header .icon-menu").on("click", function (e) {
-	// 	e.stopPropagation();
-	// 	toggleNavigation(this);
-	// });
-
-	// $(".header .icon-menu").on("keyup", function (e) {
-	// 	if (e.keyCode === 13) { // Enter key
-	// 		e.stopPropagation();
-	// 		toggleNavigation(this);
-	// 	}
-	// });
-
-	// $("#user-nav").on("keyup", function (e) {
-	// 	if (e.keyCode === 27) { // Escape key
-	// 		e.stopPropagation();
-	// 		this.setAttribute("aria-expanded", false);
-	// 		$(".header .icon-menu").attr("aria-expanded", false);
-	// 	}
-	// });
-
-	// if ($("#user-nav").children().length === 0) {
-	// 	$(".header .icon-menu").hide();
-	// }
