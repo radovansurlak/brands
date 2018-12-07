@@ -122,16 +122,13 @@ $(document).ready(function () {
 			toggleMenuButtonImage()
 		}
 	}
-
 	menuButton.addEventListener('click', toggleMenu)
-
 
 	menuButton.addEventListener("keyup", function(event) {
 		if (event.keyCode === 27 && menu.classList.contains("header__nav--visible")) toggleMenu();
 	})
 
 	menu.addEventListener("transitionend", onTransitionEnd, false);
-
 })
 
 
