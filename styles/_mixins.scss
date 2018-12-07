@@ -190,38 +190,36 @@
 }
 
 @mixin hover {
-	&:hover, &:active {
+	&:hover,
+	&:active {
 		@content;
 	}
 }
 
 @mixin object-fit($value) {
-	object-fit: $value;
 	font-family: 'object-fit: #{$value};';
+	object-fit: $value;
 }
 
 @mixin reset-button {
-	border: none;
 	margin: 0;
-	padding: 0;
+
 	width: auto;
-	overflow: visible;
+	padding: 0;
+	/* Corrects inability to style clickable `input` types in iOS */
 
+	-webkit-appearance: none;
 	background: transparent;
-
+	border: none;
 	/* inherit font & color from ancestor */
 	color: inherit;
 	font: inherit;
-
-	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-	line-height: normal;
-
 	/* Corrects font smoothing for webkit */
 	-webkit-font-smoothing: inherit;
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
 	-moz-osx-font-smoothing: inherit;
-
-	/* Corrects inability to style clickable `input` types in iOS */
-	-webkit-appearance: none;
+	overflow: visible;
 }
 
 @mixin fluid($properties, $min, $max, $start: $fluid-start, $end: $fluid-end, $clip: true, $clipAtStart: true, $clipAtEnd: true) {
