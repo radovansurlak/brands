@@ -24,7 +24,7 @@
 										<footer class="news__article__footer">
 											<span class="news__article__date">{{t 'created'}} {{date ../created_at timeago=true}}</span>
 											<span class="news__article__comments"><img class="news__article__comment-number" src="{{ asset 'comment.png' }}"
-												alt="Comment icon"><span class="news__article__comment-text">{{../comment_count}}</span></span>
+												alt="Text bubble icon"><span class="news__article__comment-text">{{../comment_count}}</span></span>
 										</footer>
 									</div>
 								</article>
@@ -65,7 +65,7 @@
 									{{#each labels}}
 										{{#is identifier 'highlight'}}
 										<li class="category-article">
-											<img class="category-article__icon" src="{{ asset 'arrow.svg'}}" alt="">
+											<img class="category-article__icon" src="{{ asset 'arrow.svg'}}" alt="category icon">
 											<h5 class="category-article__title"><a href="{{../url}}">{{../title}}</a></h5>
 										</li>
 										{{/is}}
